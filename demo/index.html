@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <link rel="stylesheet" type="text/css" href="showToast.css" />
+    <link rel="stylesheet" type="text/css" href="../dist/style/sliderDrag.css" />
+    <title> 滑动验证 </title>
+    </head>
+    <body>
+        <!-- 滑动验证 -->
+        <div class="weui_cells_title"><i>*</i>请将滑块拖到虚框内</div>
+        <div class="weui_cells u-sliderUnlock" style="width: 500px">
+            <!--<div class="cover"></div>-->
+            <div class="u-slider-box">
+                <div class="u-slider" id="slider" style="width: 500px">
+                    <!--<div class="slider_bg" id="slider_bg"></div>-->
+                    <div class="handler" id="handler" style="left: 0px;">|||</div>
+                    <div class="matchArea" id="matchArea"></div>
+                </div>
+            </div>
+        </div>
+        <!-- /滑动验证 -->
+        <div class="weui_btn_area" style="width: 500px">
+            <button class="btn btn-primary" id="reset">reset</button>
+        </div>
+        <button id="temp" style="display:none;"></button>
+    </body>
+    <script type="text/javascript" src="../dist/script/jquery-2.1.1/jquery.min.js"></script>
+    <!-- 滑动插件 -->
+    <script type="text/javascript" src="../dist/script/drag.js"></script>
+    <!-- 弹框插件 -->
+    <script type="text/javascript" src="showToast.js"></script>
+    <script type="text/javascript" src="../dist/script/browser.js"></script>
+    <script type="text/javascript">
+        log = [];
+        logs = "------------------start------------------\n";
+        back = 0;
+        click = false;
+        function generateUUID() {
+            var d = new Date().getTime();
+            var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+              var r = (d + Math.random()*16)%16 | 0;
+              d = Math.floor(d/16);
+              return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+            });
+            return uuid;
+        };
+        Id = generateUUID();
+        isHtml = false;
+        console.log("Id=" + Id);
+        logs += "Id: " + Id + "\n";
+        //以下是调用上面的函数
+        showBrowser();
+        $('#slider').drag();
+
+        $('#reset').click(function(event) {
+            window.location.reload()
+        });
+        $('#temp').click(function(event) {
+            $('#slider').drag();
+        });
+    </script>
+</html>
