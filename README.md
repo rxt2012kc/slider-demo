@@ -7,5 +7,7 @@
 - 可向后台代码发送ajax请求，发送log日志
 ## 使用：
 进入demo文件夹，双击进入index.html，即可使用
+## 演示地址
+!http://114.215.40.155:9999/slider-demo/demo/index.html
 ## 小贴士
 如果您喜欢这个项目～可以Star一下～
